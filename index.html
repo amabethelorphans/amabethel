@@ -73,7 +73,7 @@
         /* ── Hero ── */
         #home.hero {
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                        url('hero.jpg') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&q=80') center/cover no-repeat;
             color: white;
             text-align: center;
             padding: 140px 20px;
@@ -560,11 +560,31 @@
         <h2 class="section-title">Impact & Updates</h2>
 
         <div class="latest-update-inner">
-            <p class="update-date">🎉 Latest Update — February 12, 2026</p>
-            <h3>₦165,000 Received for School Registration!</h3>
-            <p>We give God all the glory! We recently received ₦165,000 in support to pay for our school registration with the Ministry of Education. This milestone means our children will have official recognition for their education, access to proper certification, and a legitimate foundation for their future.</p>
-            <p>This is proof that when God's people respond to His call, mountains move and children's lives change forever. Thank you to every supporter who made this possible.</p>
+            <p class="update-date">📣 Latest Update — February 22, 2026</p>
+            <h3>Something Good Is On Its Way. — GOD</h3>
+            <p>Happy Sunday, friends!</p>
+            <p>As we begin this week, we want you to know: <strong>something good is on its way</strong> for the children of Ama Bethel.</p>
+            <p>Maybe it's the donor who will help us complete our classrooms.<br>
+               Maybe it's the volunteer who will share their skills.<br>
+               Maybe it's <em>YOU.</em></p>
+            <p>Last week, we saw God's faithfulness. This week, we'll see it again. Because when you're doing God's work, something good is always on its way.</p>
+            <div style="background:rgba(255,255,255,0.12); border-left:4px solid #c8e6a0; padding:16px 20px; border-radius:6px; margin:20px 0; font-style:italic; line-height:1.8;">
+                "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11
+            </div>
+            <p>These children are waiting for their <strong>"something good."</strong></p>
+            <p style="font-size:1.15rem; font-weight:600; margin-top:10px;">Will you be part of what's on its way?</p>
         </div>
+
+        <!-- Previous update -->
+        <details style="margin-bottom:40px; background:#f8f9fa; border-radius:10px; padding:20px;">
+            <summary style="cursor:pointer; color:#2c5f2d; font-weight:600; font-size:1.05rem; list-style:none;">
+                📌 Previous Update — February 12, 2026: ₦165,000 Received for School Registration ▾
+            </summary>
+            <div style="margin-top:15px; color:#555; line-height:1.8;">
+                <p>We give God all the glory! We recently received ₦165,000 in support to pay for our school registration with the Ministry of Education. This milestone means our children will have official recognition for their education, access to proper certification, and a legitimate foundation for their future.</p>
+                <p style="margin-top:10px;">This is proof that when God's people respond to His call, mountains move and children's lives change forever. Thank you to every supporter who made this possible.</p>
+            </div>
+        </details>
 
         <h3 style="color:#2c5f2d; font-size:1.6rem; margin-bottom:20px;">Stories of Hope</h3>
         <div class="impact-stories">
@@ -672,7 +692,7 @@
                     <div class="icon">✉️</div>
                     <div class="text">
                         <strong>Email</strong>
-                        <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a>
+                        <a href="/cdn-cgi/l/email-protection#4c2d212d2e2938242920233e3c242d223f2f2d3e2925222538252d38253a290c2b212d2520622f2321"><span class="__cf_email__" data-cfemail="d5b4b8b4b7b0a1bdb0b9baa7a5bdb4bba6b6b4a7b0bcbbbca1bcb4a1bca3b095b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -741,7 +761,7 @@
             <h3>Contact</h3>
             <p>📍 Arhan Kunu, Mubi, Adamawa State</p>
             <p>📞 <a href="tel:+2347036899929">07036899929</a></p>
-            <p>✉️ <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a></p>
+            <p>✉️ <a href="/cdn-cgi/l/email-protection#63020e020106170b060f0c11130b020d10000211060a0d0a170a02170a150623040e020a0f4d000c0e"><span class="__cf_email__" data-cfemail="a3c2cec2c1c6d7cbc6cfccd1d3cbc2cdd0c0c2d1c6cacdcad7cac2d7cad5c6e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a></p>
         </div>
         <div class="footer-section">
             <h3>Donate</h3>
@@ -758,7 +778,7 @@
 <!-- Back to top -->
 <a href="#home" id="back-top" title="Back to top">↑</a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Mobile Nav Toggle ──
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('main-nav');
@@ -806,16 +826,4 @@
         const subject = document.getElementById('subject').value || 'Website Enquiry';
         const message = document.getElementById('message').value;
 
-        const mailtoLink = `mailto:amabethelorphanscareinitiative@gmail.com`
-            + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
-            + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
-
-        window.location.href = mailtoLink;
-
-        document.getElementById('formSuccess').style.display = 'block';
-        e.target.reset();
-        setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 6000);
-    }
-</script>
-</body>
-</html>
+        const mailtoLink = `mailto:amabethelorphanscareinitiative@
