@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ama Bethel Orphans Care Initiative - Giving Hope to Vulnerable Children</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 { font-size: 1.5rem; font-weight: 700; }
+
+        nav ul { list-style: none; display: flex; gap: 1.8rem; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            border-bottom-color: #fff;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger span {
+            width: 25px; height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        /* ── Hero ── */
+        #home.hero {
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                        url('hero.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 140px 20px;
+        }
+
+        .hero h2 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.6); }
+
+        /* ── Container ── */
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ── Section Title ── */
+        .section-title {
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title-white { color: #fff; }
+
+        /* ── Stats ── */
+        .stats { background: #f8f9fa; padding: 60px 20px; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-number { font-size: 3rem; color: #2c5f2d; font-weight: 700; }
+        .stat-label { font-size: 1.1rem; color: #666; margin-top: 10px; }
+
+        /* ── Mission / About ── */
+        #about { padding: 80px 20px; background: white; }
+
+        .mission-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .mission-content p { font-size: 1.15rem; color: #555; margin-bottom: 1.5rem; line-height: 1.8; }
+
+        .bible-verse {
+            font-style: italic;
+            color: #555;
+            font-size: 1.1rem;
+            margin: 2rem 0;
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-left: 4px solid #2c5f2d;
+            text-align: left;
+        }
+
+        .founder-card {
+            margin-top: 50px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            text-align: left;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .founder-avatar {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, #2c5f2d, #97bc62);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .founder-info h4 { color: #2c5f2d; font-size: 1.2rem; }
+        .founder-info p { color: #666; font-size: 0.95rem; margin-top: 5px; }
+
+        /* ── Our Work / Programs ── */
+        #work { padding: 80px 20px; background: #f8f9fa; }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .program-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        .program-icon { font-size: 2.8rem; margin-bottom: 15px; }
+        .program-card h3 { font-size: 1.4rem; color: #2c5f2d; margin-bottom: 12px; }
+        .program-card p { color: #666; line-height: 1.7; }
+
+        /* ── Impact ── */
+        #impact { padding: 80px 20px; background: white; }
+
+        .latest-update-inner {
+            background: linear-gradient(135deg, #2c5f2d, #4a8c4b);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+        .update-date { color: #c8e6a0; font-weight: 600; margin-bottom: 8px; }
+        .latest-update-inner h3 { font-size: 1.9rem; margin-bottom: 15px; }
+        .latest-update-inner p { line-height: 1.8; margin-bottom: 12px; opacity: 0.95; }
+
+        .impact-stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .story-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid #97bc62;
+        }
+        .story-card .quote { font-size: 2rem; color: #97bc62; line-height: 1; }
+        .story-card p { color: #555; font-style: italic; margin: 10px 0; line-height: 1.7; }
+        .story-card .name { color: #2c5f2d; font-weight: 600; font-style: normal; font-size: 0.9rem; }
+
+        .needs-section {
+            margin-top: 60px;
+            background: #fff8f5;
+            border: 2px solid #ff6b35;
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+        }
+        .needs-section h3 { color: #ff6b35; font-size: 1.8rem; margin-bottom: 15px; }
+        .needs-section p { color: #555; margin-bottom: 20px; font-size: 1.05rem; }
+        .needs-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .need-tag {
+            background: #ff6b35;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* ── Get Involved ── */
+        #get-involved { padding: 80px 20px; background: #f8f9fa; }
+
+        .involve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .involve-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .involve-card:hover { transform: translateY(-5px); }
+        .involve-card .icon { font-size: 3rem; margin-bottom: 15px; }
+        .involve-card h3 { color: #2c5f2d; font-size: 1.4rem; margin-bottom: 12px; }
+        .involve-card p { color: #666; line-height: 1.7; margin-bottom: 20px; }
+
+        .donate-section {
+            background: linear-gradient(135deg, #2c5f2d, #4a8c4b);
+            color: white;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .donate-section h3 { font-size: 2rem; margin-bottom: 20px; }
+        .bank-details {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 25px 40px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .bank-details p { margin-bottom: 10px; font-size: 1.05rem; }
+        .bank-details strong { color: #c8e6a0; }
+
+        /* ── Contact ── */
+        #contact { padding: 80px 20px; background: white; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        .contact-info h3 { color: #2c5f2d; font-size: 1.5rem; margin-bottom: 20px; }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .contact-item .icon {
+            font-size: 1.5rem;
+            width: 40px; height: 40px;
+            background: #f0f7f0;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-item .text strong { color: #333; display: block; font-size: 0.85rem; margin-bottom: 3px; }
+        .contact-item .text a, .contact-item .text span { color: #555; text-decoration: none; font-size: 0.95rem; }
+        .contact-item .text a:hover { color: #2c5f2d; }
+
+        .contact-form { background: #f8f9fa; border-radius: 12px; padding: 35px; }
+        .contact-form h3 { color: #2c5f2d; font-size: 1.5rem; margin-bottom: 20px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; color: #444; font-weight: 500; margin-bottom: 6px; font-size: 0.9rem; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            background: white;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2c5f2d;
+        }
+        .form-group textarea { resize: vertical; min-height: 110px; }
+        .form-success {
+            display: none;
+            background: #e8f5e9;
+            border: 1px solid #2c5f2d;
+            color: #2c5f2d;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 { color: #97bc62; margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-section p { color: #aaa; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.7; }
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover { color: #97bc62; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ── Back to Top ── */
+        #back-top {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            background: #2c5f2d;
+            color: white;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(44,95,45,0.4);
+        }
+        #back-top.visible { opacity: 1; pointer-events: auto; }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 1.05rem; }
+            .section-title { font-size: 1.9rem; }
+
+            .hamburger { display: flex; }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0; right: 0;
+                background: #2c5f2d;
+                padding: 20px;
+            }
+            nav.open { display: block; }
+            nav ul { flex-direction: column; gap: 0; }
+            nav ul li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+            nav ul li:last-child { border-bottom: none; }
+            nav a { display: block; padding: 12px 0; }
+
+            .header-container { position: relative; }
+
+            .founder-card { flex-direction: column; text-align: center; }
+            .bank-details { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>🏠 Ama Bethel Orphans Care Initiative</h1>
+        </div>
+        <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#work">Our Work</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#get-involved">Get Involved</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ── Hero ── -->
+<section id="home" class="hero">
+    <h2>Building Futures, One Child at a Time</h2>
+    <p>Providing hope, education, and care to 53 orphaned and vulnerable children in Mubi, Adamawa State</p>
+    <a href="#get-involved" class="cta-button">Support Our Mission</a>
+</section>
+
+<!-- ── Stats ── -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">53</div>
+                <div class="stat-label">Children in Our Care</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2021</div>
+                <div class="stat-label">Year Founded</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Programs Offered</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Lives Transformed</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── About Us ── -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <div class="mission-content">
+            <p>At Ama Bethel Orphans Care Initiative, we are committed to providing comprehensive care, quality education, and spiritual nurturing to orphaned and vulnerable children in Arhan Kunu, Mubi, Adamawa State.</p>
+            <p>Founded in 2021 by <strong>Rebecca John Mandafia</strong>, our initiative was born from a deep compassion for children who lacked basic welfare and educational opportunities. We believe every child deserves a chance to thrive, regardless of their circumstances.</p>
+            <p>We are a faith-based, community-rooted organisation that partners with local families, churches, and international supporters to ensure no child is left behind. Our holistic approach addresses not just immediate physical needs, but emotional healing, educational advancement, and spiritual growth.</p>
+            <div class="bible-verse">
+                "Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress and to keep oneself from being polluted by the world." — James 1:27
+            </div>
+            <div class="founder-card">
+                <div class="founder-avatar">👩</div>
+                <div class="founder-info">
+                    <h4>Rebecca John Mandafia</h4>
+                    <p><strong>Founder & Executive Director</strong></p>
+                    <p>With a heart shaped by faith and a vision for every child to know love, Rebecca established Ama Bethel to be the answer to orphaned children's prayers in Northeast Nigeria.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Our Work ── -->
+<section id="work">
+    <div class="container">
+        <h2 class="section-title">Our Work</h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-icon">📚</div>
+                <h3>Education</h3>
+                <p>Providing quality education, books, uniforms, and learning materials to ensure every child has access to knowledge and opportunity. We recently completed registration with the Ministry of Education, giving our school official recognition.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🏥</div>
+                <h3>Healthcare</h3>
+                <p>Regular medical checkups, nutritious meals, and healthcare support to ensure our children grow healthy and strong. We partner with local clinics to provide preventive care and treatment.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🏡</div>
+                <h3>Safe Shelter</h3>
+                <p>A secure, loving environment where children can feel safe, valued, and cared for while we work toward a permanent facility. We are actively fundraising for land and construction.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">✝️</div>
+                <h3>Spiritual Development</h3>
+                <p>Nurturing faith and character through biblical teaching, prayer, and Christ-centred values. We believe spiritual roots give children resilience for life's challenges.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🎓</div>
+                <h3>Life Skills</h3>
+                <p>Equipping children with practical skills and life lessons to prepare them for independent, successful futures — from financial literacy to vocational training for older children.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">❤️</div>
+                <h3>Family Reunification</h3>
+                <p>Working to reconnect children with extended family members whenever safe and possible, while maintaining ongoing support and monitoring to ensure their wellbeing.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🌱</div>
+                <h3>Community Outreach</h3>
+                <p>Engaging the wider Mubi community through awareness programmes, feeding outreaches, and partnerships with churches and local leaders to build a protective network for vulnerable children.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Impact ── -->
+<section id="impact">
+    <div class="container">
+        <h2 class="section-title">Impact & Updates</h2>
+
+        <div class="latest-update-inner">
+            <p class="update-date">🎉 Latest Update — February 12, 2026</p>
+            <h3>₦165,000 Received for School Registration!</h3>
+            <p>We give God all the glory! We recently received ₦165,000 in support to pay for our school registration with the Ministry of Education. This milestone means our children will have official recognition for their education, access to proper certification, and a legitimate foundation for their future.</p>
+            <p>This is proof that when God's people respond to His call, mountains move and children's lives change forever. Thank you to every supporter who made this possible.</p>
+        </div>
+
+        <h3 style="color:#2c5f2d; font-size:1.6rem; margin-bottom:20px;">Stories of Hope</h3>
+        <div class="impact-stories">
+            <div class="story-card">
+                <div class="quote">"</div>
+                <p>Before coming to Ama Bethel, I had not been in school for two years. Now I love reading and I want to be a doctor so I can help sick children like me.</p>
+                <span class="name">— Aisha, age 10</span>
+            </div>
+            <div class="story-card">
+                <div class="quote">"</div>
+                <p>Seeing these children smile, learn, and grow in faith every single day reminds me why God placed this burden on my heart. Every life matters.</p>
+                <span class="name">— Rebecca J. Mandafia, Founder</span>
+            </div>
+            <div class="story-card">
+                <div class="quote">"</div>
+                <p>We supported Ama Bethel because we saw genuine transformation — not just food and shelter, but children discovering their worth and their futures.</p>
+                <span class="name">— A Partner Donor</span>
+            </div>
+        </div>
+
+        <div class="needs-section">
+            <h3>Current Urgent Needs</h3>
+            <p>Your support can directly meet these pressing needs for our 53 children:</p>
+            <div class="needs-list">
+                <span class="need-tag">School Feeding — ₦50,000/month</span>
+                <span class="need-tag">Medical Supplies</span>
+                <span class="need-tag">Permanent Building Fund</span>
+                <span class="need-tag">School Books & Uniforms</span>
+                <span class="need-tag">Beds & Bedding</span>
+                <span class="need-tag">Generators & Solar Power</span>
+            </div>
+            <a href="#get-involved" class="cta-button">Give Today</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── Get Involved ── -->
+<section id="get-involved">
+    <div class="container">
+        <h2 class="section-title">Get Involved</h2>
+        <div class="involve-grid">
+            <div class="involve-card">
+                <div class="icon">💰</div>
+                <h3>Donate</h3>
+                <p>A one-time or monthly gift directly funds food, education, healthcare, and shelter for our children. Even ₦500 makes a difference.</p>
+                <a href="#donate-details" class="cta-button" style="font-size:0.95rem; padding:10px 25px;">See Account Details</a>
+            </div>
+            <div class="involve-card">
+                <div class="icon">🤝</div>
+                <h3>Partner With Us</h3>
+                <p>Churches, organisations, and businesses can partner with us through sustained sponsorships, in-kind donations, or programme co-funding.</p>
+                <a href="#contact" class="cta-button" style="font-size:0.95rem; padding:10px 25px;">Contact Us</a>
+            </div>
+            <div class="involve-card">
+                <div class="icon">🙏</div>
+                <h3>Pray</h3>
+                <p>Join our prayer community. Lift up our children, staff, and mission in prayer. We firmly believe prayer moves mountains — as God has shown us time and again.</p>
+                <a href="#contact" class="cta-button" style="font-size:0.95rem; padding:10px 25px;">Request Updates</a>
+            </div>
+            <div class="involve-card">
+                <div class="icon">📢</div>
+                <h3>Spread the Word</h3>
+                <p>Share our story with your network. Awareness is the first step to support. Tell your church, workplace, or social media followers about Ama Bethel.</p>
+                <a href="#contact" class="cta-button" style="font-size:0.95rem; padding:10px 25px;">Get Our Materials</a>
+            </div>
+        </div>
+
+        <div class="donate-section" id="donate-details">
+            <h3>💳 Donate via Bank Transfer</h3>
+            <p>Your gift is received with gratitude and used faithfully for the children's welfare.</p>
+            <div class="bank-details">
+                <p><strong>Account Number:</strong> &nbsp;1225821496</p>
+                <p><strong>Account Name:</strong> &nbsp;Ama Bethel Orphanage Home</p>
+                <p><strong>Bank:</strong> &nbsp;Zenith Bank</p>
+            </div>
+            <p style="opacity:0.85; margin-top:15px; font-size:0.95rem;">After donating, please send us a message via the Contact form so we can acknowledge your gift and send you an update on how it is being used.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p style="color:#666; margin-bottom:25px;">We love hearing from supporters, partners, and anyone who wants to know more about our work with the children of Ama Bethel.</p>
+
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div class="text">
+                        <strong>Address</strong>
+                        <span>Arhan Kunu, Mubi, Adamawa State, Nigeria</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div class="text">
+                        <strong>Phone / WhatsApp</strong>
+                        <a href="tel:+2347036899929">07036899929</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <div class="text">
+                        <strong>Email</strong>
+                        <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🕐</div>
+                    <div class="text">
+                        <strong>Response Time</strong>
+                        <span>We aim to reply within 48 hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="">— Select a subject —</option>
+                            <option value="donation">Donation / Giving</option>
+                            <option value="partnership">Partnership / Sponsorship</option>
+                            <option value="volunteer">Volunteering</option>
+                            <option value="prayer">Prayer Support</option>
+                            <option value="media">Media / Press</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="How can we help, or how would you like to help us?" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width:100%; display:block; text-align:center;">Send Message</button>
+                    <div class="form-success" id="formSuccess">
+                        ✅ Thank you! Your message has been sent. We'll be in touch soon.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>🏠 Ama Bethel Orphans Care Initiative</h3>
+            <p>Serving orphaned and vulnerable children in Mubi, Adamawa State since 2021. Rooted in faith, driven by love.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#work">Our Work</a>
+            <a href="#impact">Impact & Updates</a>
+            <a href="#get-involved">Get Involved</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>📍 Arhan Kunu, Mubi, Adamawa State</p>
+            <p>📞 <a href="tel:+2347036899929">07036899929</a></p>
+            <p>✉️ <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a></p>
+        </div>
+        <div class="footer-section">
+            <h3>Donate</h3>
+            <p><strong style="color:#97bc62;">Account Number:</strong> 1225821496</p>
+            <p><strong style="color:#97bc62;">Account Name:</strong> Ama Bethel Orphanage Home</p>
+            <p><strong style="color:#97bc62;">Bank:</strong> Zenith Bank</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Ama Bethel Orphans Care Initiative. All rights reserved. | Mubi, Adamawa State, Nigeria</p>
+    </div>
+</footer>
+
+<!-- Back to top -->
+<a href="#home" id="back-top" title="Back to top">↑</a>
+
+<script>
+    // ── Mobile Nav Toggle ──
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        nav.classList.toggle('open');
+    });
+
+    // Close nav when a link is clicked
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            nav.classList.remove('open');
+        });
+    });
+
+    // ── Active nav link on scroll ──
+    const sections = document.querySelectorAll('section[id], header + section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function setActiveLink() {
+        let current = '';
+        sections.forEach(sec => {
+            if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    }
+
+    // ── Back-to-top button ──
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+        backTop.classList.toggle('visible', window.scrollY > 400);
+        setActiveLink();
+    });
+
+    // ── Contact form (mailto fallback) ──
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const name    = document.getElementById('name').value;
+        const email   = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value || 'Website Enquiry';
+        const message = document.getElementById('message').value;
+
+        const mailtoLink = `mailto:amabethelorphanscareinitiative@gmail.com`
+            + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
+            + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+
+        window.location.href = mailtoLink;
+
+        document.getElementById('formSuccess').style.display = 'block';
+        e.target.reset();
+        setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 6000);
+    }
+</script>
+</body>
+</html>
