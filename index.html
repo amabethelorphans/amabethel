@@ -559,7 +559,7 @@
     <div class="container">
         <h2 class="section-title">Impact & Updates</h2>
 
-        <div class="latest-update-inner">
+ <div class="latest-update-inner">
             <p class="update-date">📣 Latest Update — February 22, 2026</p>
             <h3>Something Good Is On Its Way. — GOD</h3>
             <p>Happy Sunday, friends!</p>
@@ -692,7 +692,7 @@
                     <div class="icon">✉️</div>
                     <div class="text">
                         <strong>Email</strong>
-                        <a href="/cdn-cgi/l/email-protection#4c2d212d2e2938242920233e3c242d223f2f2d3e2925222538252d38253a290c2b212d2520622f2321"><span class="__cf_email__" data-cfemail="d5b4b8b4b7b0a1bdb0b9baa7a5bdb4bba6b6b4a7b0bcbbbca1bcb4a1bca3b095b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a>
+                        <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -761,7 +761,7 @@
             <h3>Contact</h3>
             <p>📍 Arhan Kunu, Mubi, Adamawa State</p>
             <p>📞 <a href="tel:+2347036899929">07036899929</a></p>
-            <p>✉️ <a href="/cdn-cgi/l/email-protection#63020e020106170b060f0c11130b020d10000211060a0d0a170a02170a150623040e020a0f4d000c0e"><span class="__cf_email__" data-cfemail="a3c2cec2c1c6d7cbc6cfccd1d3cbc2cdd0c0c2d1c6cacdcad7cac2d7cad5c6e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a></p>
+            <p>✉️ <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a></p>
         </div>
         <div class="footer-section">
             <h3>Donate</h3>
@@ -778,7 +778,7 @@
 <!-- Back to top -->
 <a href="#home" id="back-top" title="Back to top">↑</a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
     // ── Mobile Nav Toggle ──
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('main-nav');
@@ -826,4 +826,16 @@
         const subject = document.getElementById('subject').value || 'Website Enquiry';
         const message = document.getElementById('message').value;
 
-        const mailtoLink = `mailto:amabethelorphanscareinitiative@
+        const mailtoLink = `mailto:amabethelorphanscareinitiative@gmail.com`
+            + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
+            + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+
+        window.location.href = mailtoLink;
+
+        document.getElementById('formSuccess').style.display = 'block';
+        e.target.reset();
+        setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 6000);
+    }
+</script>
+</body>
+</html>
