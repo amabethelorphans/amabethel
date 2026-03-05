@@ -509,7 +509,11 @@
             object-fit: cover;
             object-position: center top;
             display: block;
-            transition: transform 0.4s;
+            transition: transform 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+        .gallery-img-wrap img.loaded {
+            opacity: 1;
         }
         .gallery-item:hover .gallery-img-wrap img { transform: scale(1.04); }
         .gallery-img-wrap video {
@@ -995,7 +999,7 @@
             
             <div class="gallery-item" data-caption="Children at morning prayer">
                 <div class="gallery-img-wrap">
-                    <img src="home.jpg" alt="Our children on Uniform">
+                    <img src="home.jpg" alt="Our children on Uniform" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel Kids</span>
@@ -1006,7 +1010,7 @@
 			
 			<div class="gallery-item" data-caption="Children at morning prayer">
                 <div class="gallery-img-wrap">
-                    <img src="compound.jpg" alt="Normal Day">
+                    <img src="compound.jpg" alt="Normal Day" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel</span>
@@ -1017,7 +1021,7 @@
 			
 			<div class="gallery-item" data-caption="Children at morning prayer">
                 <div class="gallery-img-wrap">
-                    <img src="orphans.jpg" alt="Joyfully showing the gifts they have received">
+                    <img src="orphans.jpg" alt="Joyfully showing the gifts they have received" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel</span>
@@ -1059,7 +1063,7 @@
 
 <div class="gallery-item" data-caption="Gifts presented to the children">
                 <div class="gallery-img-wrap">
-                    <img src="gifts.jpg" alt="Gifts being received by the children">
+                    <img src="gifts.jpg" alt="Gifts being received by the children" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel</span>
@@ -1070,7 +1074,7 @@
 
 			<div class="gallery-item" data-caption="Children receiving some talk">
                 <div class="gallery-img-wrap">
-                    <img src="structure.jpg" alt="Children receiving some talk">
+                    <img src="structure.jpg" alt="Children receiving some talk" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel</span>
@@ -1081,7 +1085,7 @@
 
 		<div class="gallery-item" data-caption="Children with their teachers">
                 <div class="gallery-img-wrap">
-                    <img src="teachers.png" alt="Children with the founder and  their teachers">
+                    <img src="teachers.png" alt="Children with the founder and  their teachers" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel</span>
@@ -1093,7 +1097,7 @@
 
 		<div class="gallery-item" data-caption="Children with their teachers">
                 <div class="gallery-img-wrap">
-                    <img src="kids.jpg" alt="Children with their teachers">
+                    <img src="kids.jpg" alt="Children with their teachers" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel</span>
@@ -1104,39 +1108,40 @@
 
 
 
-
-
-
             <!-- ── YouTube video card — replace YOUR_VIDEO_ID with your real ID ── -->
             <div class="gallery-item">
                 <div class="gallery-yt-wrap">
                     <iframe
-                        src="https://youtu.be/WAfLNrl_WMg"
+                        src="https://www.youtube.com/watch?v=WAfLNrl_WMg"
                         title="Ama Bethel video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        loading="lazy">
                     </iframe>
                 </div>
                 
             </div>
-
-
- <div class="gallery-item">
+			
+			
+			
+			<div class="gallery-item">
                 <div class="gallery-yt-wrap">
                     <iframe
-                        src="https://youtu.be/Lc9IOM-PZ5E" 
+                        src="https://www.youtube.com/watch?v=Lc9IOM-PZ5E"
                         title="Ama Bethel video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        loading="lazy">
                     </iframe>
                 </div>
                 
             </div>
-
 
         </div>
 
-      
+        
 
         
     </div>
@@ -1354,6 +1359,16 @@
     const lightboxImg   = document.getElementById('lightbox-img');
     const lightboxCap   = document.getElementById('lightbox-caption');
     const lightboxClose = document.getElementById('lightbox-close');
+
+    // ── Image lazy-load fade-in ──
+    document.querySelectorAll('.gallery-img-wrap img').forEach(function(img) {
+        if (img.complete && img.naturalWidth > 0) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() { img.classList.add('loaded'); });
+            img.addEventListener('error', function() { img.classList.add('loaded'); }); // still show on error
+        }
+    });
 
     document.getElementById('galleryGrid').addEventListener('click', function(e) {
         const item = e.target.closest('.gallery-item');
