@@ -430,6 +430,241 @@
             .founder-card { flex-direction: column; text-align: center; }
             .bank-details { padding: 20px; }
         }
+
+        /* ── Mobile logo fix ── */
+        @media (max-width: 768px) {
+            .logo h1 { font-size: 1rem; }
+        }
+
+        /* ── Credentials ── */
+        #credentials { padding: 80px 20px; background: #f8f9fa; }
+        .credentials-intro { max-width: 750px; margin: 0 auto 50px; text-align: center; }
+        .verified-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #e8f5e9; border: 2px solid #2c5f2d; color: #2c5f2d;
+            padding: 14px 28px; border-radius: 50px; font-weight: 600;
+            font-size: 1.05rem; margin-bottom: 25px;
+        }
+        .credentials-intro p { color: #555; font-size: 1.1rem; line-height: 1.8; }
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px; max-width: 1100px; margin: 0 auto;
+        }
+        .doc-card {
+            background: white; border-radius: 12px; padding: 30px 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); text-align: center;
+            border-top: 4px solid #2c5f2d; transition: transform 0.3s;
+        }
+        .doc-card:hover { transform: translateY(-4px); }
+        .doc-card .doc-icon { font-size: 2.5rem; margin-bottom: 14px; }
+        .doc-card h4 { color: #2c5f2d; font-size: 1.1rem; margin-bottom: 10px; }
+        .doc-card p { color: #777; font-size: 0.88rem; line-height: 1.6; margin-bottom: 18px; }
+        .doc-status {
+            display: inline-block; padding: 5px 14px;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+        }
+        .doc-status.available { background: #e8f5e9; color: #2c5f2d; }
+        .doc-status.coming-soon { background: #fff3e0; color: #e65100; }
+        .doc-upload-note {
+            max-width: 700px; margin: 40px auto 0; text-align: center;
+            background: #fffde7; border: 1px dashed #f9a825;
+            border-radius: 10px; padding: 20px 25px;
+            color: #5d4037; font-size: 0.92rem; line-height: 1.7;
+        }
+
+        /* ── Gallery ── */
+        #gallery { padding: 80px 20px; background: white; }
+        .gallery-intro {
+            max-width: 700px; margin: 0 auto 40px;
+            text-align: center; color: #555;
+            font-size: 1.1rem; line-height: 1.8;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px; max-width: 1100px; margin: 0 auto 40px;
+        }
+        .gallery-item {
+            border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: white; cursor: pointer;
+            display: flex; flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .gallery-img-wrap {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #e8f5e9;
+        }
+        .gallery-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover .gallery-img-wrap img { transform: scale(1.04); }
+        .gallery-img-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption { padding: 14px 16px; }
+        .gallery-caption p { color: #555; font-size: 0.9rem; line-height: 1.5; }
+        .gallery-caption span { color: #97bc62; font-size: 0.8rem; font-weight: 600; }
+
+        /* Placeholder cards */
+        .gallery-placeholder {
+            border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); background: white;
+        }
+        .gallery-placeholder-img {
+            width: 100%; height: 220px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            color: #2c5f2d; font-size: 2.5rem;
+        }
+        .gallery-placeholder-img span {
+            font-size: 0.85rem; margin-top: 10px;
+            font-weight: 600; opacity: 0.7;
+        }
+        .gallery-placeholder-caption {
+            padding: 14px 16px; color: #777;
+            font-size: 0.88rem; font-style: italic;
+        }
+        .gallery-add-note {
+            max-width: 700px; margin: 0 auto; text-align: center;
+            background: #fffde7; border: 1px dashed #f9a825;
+            border-radius: 10px; padding: 20px 25px;
+            color: #5d4037; font-size: 0.92rem; line-height: 1.7;
+        }
+
+        /* ── Lightbox ── */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.25s ease;
+        }
+        #lightbox.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        #lightbox-img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        #lightbox-caption {
+            position: absolute;
+            bottom: 30px; left: 50%;
+            transform: translateX(-50%);
+            color: white; text-align: center;
+            font-size: 0.95rem; opacity: 0.85;
+            max-width: 600px;
+        }
+        #lightbox-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: white; font-size: 2rem;
+            cursor: pointer; opacity: 0.8;
+            background: none; border: none;
+            line-height: 1; transition: opacity 0.2s;
+        }
+        #lightbox-close:hover { opacity: 1; }
+
+
+        /* ── Founding Story Timeline ── */
+        .story-timeline {
+            max-width: 800px;
+            margin: 50px auto 0;
+            text-align: left;
+        }
+        .story-timeline h3 {
+            color: #2c5f2d; font-size: 1.6rem;
+            margin-bottom: 25px; text-align: center;
+        }
+        .timeline-item {
+            display: flex; gap: 20px;
+            margin-bottom: 35px; align-items: flex-start;
+        }
+        .timeline-dot {
+            flex-shrink: 0; width: 46px; height: 46px;
+            background: linear-gradient(135deg, #2c5f2d, #97bc62);
+            border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 10px rgba(44,95,45,0.3);
+        }
+        .timeline-body { padding-top: 6px; }
+        .timeline-body h4 { color: #2c5f2d; font-size: 1.05rem; margin-bottom: 6px; }
+        .timeline-body p { color: #555; font-size: 0.97rem; line-height: 1.8; margin-bottom: 0; }
+
+        /* Name meaning callout */
+        .name-callout {
+            max-width: 750px; margin: 40px auto;
+            background: linear-gradient(135deg, #2c5f2d, #4a8c4b);
+            color: white; border-radius: 14px;
+            padding: 30px 35px; text-align: center;
+        }
+        .name-callout .name-emoji { font-size: 2.5rem; margin-bottom: 12px; }
+        .name-callout h4 { font-size: 1.5rem; margin-bottom: 10px; color: #ffffff; }
+        .name-callout p { color: #ffffff; opacity: 1; line-height: 1.8; font-size: 1rem; }
+        .name-callout em { color: #c8e6a0; font-style: normal; font-weight: 700; }
+        .name-callout strong { color: #ffffff; }
+
+        /* Vision / Future Plans */
+        .vision-section { max-width: 800px; margin: 60px auto 0; }
+        .vision-section h3 {
+            color: #2c5f2d; font-size: 1.6rem;
+            margin-bottom: 30px; text-align: center;
+        }
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        @media (max-width: 600px) { .vision-grid { grid-template-columns: 1fr; } }
+        .vision-card {
+            border-radius: 12px; padding: 28px;
+            border-left: 5px solid #2c5f2d;
+        }
+        .vision-card.short-term { background: #f0f7f0; }
+        .vision-card.long-term  { background: #e8f5e9; }
+        .vision-card .v-icon { font-size: 2rem; margin-bottom: 12px; }
+        .vision-card h4 { color: #2c5f2d; font-size: 1.1rem; margin-bottom: 12px; }
+        .vision-card ul { list-style: none; padding: 0; }
+        .vision-card ul li {
+            color: #555; font-size: 0.95rem; line-height: 1.7;
+            padding: 5px 0; border-bottom: 1px solid rgba(44,95,45,0.1);
+        }
+        .vision-card ul li:last-child { border-bottom: none; }
+        .vision-card ul li::before { content: "→ "; color: #97bc62; font-weight: 700; }
+        .vision-faith-note {
+            text-align: center; margin-top: 25px;
+            font-style: italic; color: #666;
+            font-size: 1rem; line-height: 1.8;
+        }
+
     </style>
 </head>
 <body>
@@ -448,6 +683,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#work">Our Work</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#impact">Impact</a></li>
                 <li><a href="#get-involved">Get Involved</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -459,7 +696,7 @@
 <!-- ── Hero ── -->
 <section id="home" class="hero">
     <h2>Building Futures, One Child at a Time</h2>
-    <p>Providing hope, education, and care to orphaned and vulnerable children in Mubi, Adamawa State</p>
+    <p>Providing hope, education, and care to 53 orphaned and vulnerable children in Mubi, Adamawa State</p>
     <a href="#get-involved" class="cta-button">Support Our Mission</a>
 </section>
 
@@ -468,7 +705,7 @@
     <div class="container">
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="stat-number">53</div>
+                <div class="stat-number">100+</div>
                 <div class="stat-label">Children in Our Care</div>
             </div>
             <div class="stat-box">
@@ -476,7 +713,7 @@
                 <div class="stat-label">Year Founded</div>
             </div>
             <div class="stat-box">
-                <div class="stat-number">7</div>
+                <div class="stat-number">7+</div>
                 <div class="stat-label">Programs Offered</div>
             </div>
             <div class="stat-box">
@@ -492,21 +729,122 @@
     <div class="container">
         <h2 class="section-title">About Us</h2>
         <div class="mission-content">
-            <p>At Ama Bethel Orphans Care Initiative, we are committed to providing comprehensive care, quality education, and spiritual nurturing to orphaned and vulnerable children in Arhan Kunu, Mubi, Adamawa State.</p>
-            <p>Founded in 2021 by <strong>Rebecca John Mandafia</strong>, our initiative was born from a deep compassion for children who lacked basic welfare and educational opportunities. We believe every child deserves a chance to thrive, regardless of their circumstances.</p>
-            <p>We are a faith-based, community-rooted organisation that partners with local families, religious organisations, and international supporters to ensure no child is left behind. Our holistic approach addresses not just immediate physical needs, but emotional healing, educational advancement, and spiritual growth.</p>
+            <p>Ama Bethel Orphans Care Initiative is a faith-based, community-rooted organisation committed to providing education, skills development, spiritual growth, and loving care to orphaned and vulnerable children in Mubi, Adamawa State. We believe every child deserves a chance to thrive, regardless of their circumstances.</p>
+
             <div class="bible-verse">
                 "Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress and to keep oneself from being polluted by the world." — James 1:27
             </div>
+
+
+ <!-- Name meaning -->
+        <div class="name-callout">
+            <div class="name-emoji">🏠</div>
+            <h4>What Our Name Means</h4>
+            <p>
+                <em>Ama</em> means "Mother" in the founder's tribe.<br>
+                <em>Bethel</em> means "House of God."<br><br>
+                Together, <strong style="color:#fff;">Ama Bethel</strong> is a <strong style="color:#c8e6a0;">Mother's House of God</strong> — a place where every child is received as God's own.
+            </p>
+        </div>
+
+
+
+            <!-- Founding Story -->
+            <div class="story-timeline">
+                <h3>Our Story</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">👧</div>
+                    <div class="timeline-body">
+                        <h4>A Vision Born at Age 11</h4>
+                        <p>The vision of Ama Bethel began when our founder was just 11 years old, inspired by a deep compassion for orphaned and vulnerable children. Though the dream did not immediately materialise, visits to orphanages and children in need kept the flame alive through the years.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">🙏</div>
+                    <div class="timeline-body">
+                        <h4>A Promise Made to God</h4>
+                        <p>Years later, after experiencing the pain of three miscarriages, the founder turned to God in prayer and made a solemn promise: if blessed with a child, she would dedicate herself to caring for other children. That very same month, she conceived.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">✨</div>
+                    <div class="timeline-body">
+                        <h4>The Birth of Bethel</h4>
+                        <p>At four months of pregnancy, in faith, she named the unborn child <strong>Bethel</strong> and registered the organisation as <em>Ama Bethel Orphanage Home Foundation.</em> When Bethel was born, he grew up as a friend and brother to the children at the orphanage — a living symbol of the promise God kept.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">🌱</div>
+                    <div class="timeline-body">
+                        <h4>From Orphanage to Community Initiative</h4>
+                        <p>Over time, the vision expanded beyond housing children. Recognising the broader needs of orphans and vulnerable children, the organisation shifted from a traditional orphanage model to a community-based approach — ensuring children live with loving families while still receiving full support. This led to its renaming as <strong>Ama Bethel Orphans Care Initiative.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Founder Card -->
             <div class="founder-card">
                 <div class="founder-avatar">👩</div>
                 <div class="founder-info">
                     <h4>Rebecca John Mandafia</h4>
                     <p><strong>Founder & Executive Director</strong></p>
-                    <p>With a heart shaped by faith and a vision for every child to know love, Rebecca established Ama Bethel to be the answer to orphaned children's prayers in Northeast Nigeria.</p>
+                    <p>A woman whose faith turned personal pain into purpose. Rebecca's journey from a childhood dream to a living, growing initiative is proof that when God plants a vision, no obstacle can uproot it.</p>
                 </div>
             </div>
+
+            <!-- Future Vision -->
+            <div class="vision-section">
+                <h3>Our Vision for the Future</h3>
+                <div class="vision-grid">
+                    <div class="vision-card short-term">
+                        <div class="v-icon">🎯</div>
+                        <h4>Short-Term Goals</h4>
+                        <ul>
+                            <li>Build a school in Mubi for orphans and vulnerable children</li>
+                            <li>Provide quality skills training for self-reliance</li>
+                            <li>Expand our community care network across Mubi</li>
+                        </ul>
+                    </div>
+                    <div class="vision-card long-term">
+                        <div class="v-icon">🌍</div>
+                        <h4>Long-Term Goals</h4>
+                        <ul>
+                            <li>Establish schools in every local government area in Adamawa State</li>
+                            <li>Give countless children access to free education</li>
+                            <li>Build a replicable model of community-based child care</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="vision-faith-note">The vision is currently self-funded, with full faith in God for partners and donors to join in fulfilling this mission. <strong>Will you be one of them?</strong></p>
+            </div>
+
         </div>
+    </div>
+</section>
+
+
+<!-- ── Our Credentials ── -->
+<section id="credentials">
+    <div class="container">
+        <h2 class="section-title">Our Credentials</h2>
+        <div class="credentials-intro">
+            <div class="verified-badge">✅ Legally Registered Organisation</div>
+            <p>Ama Bethel Orphans Care Initiative is a legally registered organisation operating in full compliance with Nigerian law. We are committed to full transparency so that every donor and partner can give with complete confidence.</p>
+        </div>
+        <div class="docs-grid">
+            <div class="doc-card">
+                <div class="doc-icon">🏛️</div>
+                <h4>CAC Registration Certificate</h4>
+                <p>Corporate Affairs Commission certificate confirming our legal registration as an organisation in Nigeria.</p>
+                <span class="doc-status coming-soon"><a href="CAC.pdf" target="_blank" class="doc-status available">View Document</a></span>
+            </div>
+            
+        </div>
+        
     </div>
 </section>
 
@@ -514,6 +852,9 @@
 <section id="work">
     <div class="container">
         <h2 class="section-title">Our Work</h2>
+        <p style="max-width:750px; margin: -10px auto 40px; text-align:center; color:#555; font-size:1.05rem; line-height:1.8;">
+            Unlike a traditional orphanage, Ama Bethel takes a community-based approach — children remain with loving families while we provide the education, skills, healthcare, and spiritual support they need to flourish.
+        </p>
         <div class="programs-grid">
             <div class="program-card">
                 <div class="program-icon">📚</div>
@@ -533,7 +874,7 @@
             <div class="program-card">
                 <div class="program-icon">✝️</div>
                 <h3>Spiritual Development</h3>
-                <p>Nurturing faith and character through teaching, prayer, and  values. We believe spiritual roots give children resilience for life's challenges.</p>
+                <p>Nurturing faith and character through biblical teaching, prayer, and Christ-centred values. We believe spiritual roots give children resilience for life's challenges.</p>
             </div>
             <div class="program-card">
                 <div class="program-icon">🎓</div>
@@ -548,7 +889,7 @@
             <div class="program-card">
                 <div class="program-icon">🌱</div>
                 <h3>Community Outreach</h3>
-                <p>Engaging the wider Mubi community through awareness programmes, feeding outreaches, and partnerships with religious institutions and local leaders to build a protective network for vulnerable children.</p>
+                <p>Engaging the wider Mubi community through awareness programmes, feeding outreaches, and partnerships with churches and local leaders to build a protective network for vulnerable children.</p>
             </div>
         </div>
     </div>
@@ -559,30 +900,35 @@
     <div class="container">
         <h2 class="section-title">Impact & Updates</h2>
 
- <div class="latest-update-inner">
-            <p class="update-date">📣 Latest Update — February 22, 2026</p>
-            <h3>Something Good Is On Its Way. — GOD</h3>
-            <p>Happy Sunday, friends!</p>
-            <p>As we begin this week, we want you to know: <strong>something good is on its way</strong> for the children of Ama Bethel.</p>
-            <p>Maybe it's the donor who will help us complete our classrooms.<br>
-               Maybe it's the volunteer who will share their skills.<br>
-               Maybe it's <em>YOU.</em></p>
-            <p>Last week, we saw God's faithfulness. This week, we'll see it again. Because when you're doing God's work, something good is always on its way.</p>
+        <div class="latest-update-inner">
+            <p class="update-date">🌟 Latest Update — March 2026</p>
+            <h3>Happy New Month! 🙏</h3>
+            <p>May this month bring joy, provision and hope to every child and every home. ❤️</p>
+            <p>As we step into March, we are grateful for the smiles on these children's faces — children who are eating, learning, and growing because people like <strong>you</strong> chose to care.</p>
+            <p>Every bottle of juice, every fruit, every meal shared is a reminder that God provides — often through His people. Thank you for being part of that provision.</p>
             <div style="background:rgba(255,255,255,0.12); border-left:4px solid #c8e6a0; padding:16px 20px; border-radius:6px; margin:20px 0; font-style:italic; line-height:1.8;">
-                "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11
+                "The Lord is my shepherd; I shall not want." — Psalm 23:1
             </div>
-            <p>These children are waiting for their <strong>"something good."</strong></p>
-            <p style="font-size:1.15rem; font-weight:600; margin-top:10px;">Will you be part of what's on its way?</p>
+            <p style="font-size:1.1rem; font-weight:600;">This month, will you help make sure these children continue to want for nothing?</p>
         </div>
 
-        <!-- Previous update -->
-        <details style="margin-bottom:40px; background:#f8f9fa; border-radius:10px; padding:20px;">
+        <!-- Previous updates -->
+        <details style="margin-bottom:30px; background:#f8f9fa; border-radius:10px; padding:20px;">
             <summary style="cursor:pointer; color:#2c5f2d; font-weight:600; font-size:1.05rem; list-style:none;">
-                📌 Previous Update — February 12, 2026: Amount Received for School Registration ▾
+                📌 February 22, 2026 — Something Good Is On Its Way ▾
             </summary>
             <div style="margin-top:15px; color:#555; line-height:1.8;">
-                <p>We give God all the glory! We recently received an amount in support to pay for our school registration with the Ministry of Education. This milestone means our children will have official recognition for their education, access to proper certification, and a legitimate foundation for their future.</p>
-                <p style="margin-top:10px;">This is proof that when God's people respond to His call, mountains move and children's lives change forever. Thank you to every supporter who made this possible.</p>
+                <p>As we began that week, we shared this word: something good is on its way for the children of Ama Bethel. Maybe it's the donor who will help complete the classrooms. Maybe it's the volunteer who will share their skills. Maybe it's you.</p>
+                <p style="margin-top:8px; font-style:italic; color:#2c5f2d;">"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11</p>
+            </div>
+        </details>
+
+        <details style="margin-bottom:40px; background:#f8f9fa; border-radius:10px; padding:20px;">
+            <summary style="cursor:pointer; color:#2c5f2d; font-weight:600; font-size:1.05rem; list-style:none;">
+                📌 February 12, 2026 — ₦165,000 Received for School Registration ▾
+            </summary>
+            <div style="margin-top:15px; color:#555; line-height:1.8;">
+                <p>We gave God all the glory! We received support to pay for our school registration with the Ministry of Education. This milestone means our children now have official recognition for their education, access to proper certification, and a legitimate foundation for their future.</p>
             </div>
         </details>
 
@@ -609,7 +955,7 @@
             <h3>Current Urgent Needs</h3>
             <p>Your support can directly meet these pressing needs for our 53 children:</p>
             <div class="needs-list">
-                <span class="need-tag">School Feeding </span>
+                <span class="need-tag">School Feeding — ₦50,000/month</span>
                 <span class="need-tag">Medical Supplies</span>
                 <span class="need-tag">Permanent Building Fund</span>
                 <span class="need-tag">School Books & Uniforms</span>
@@ -620,6 +966,140 @@
         </div>
     </div>
 </section>
+
+
+<!-- ── Gallery: Life at Ama Bethel ── -->
+<section id="gallery">
+    <div class="container">
+        <h2 class="section-title">Life at Ama Bethel</h2>
+        <p class="gallery-intro">A glimpse into the daily lives, activities, and joy of the children of Ama Bethel. Click any image to view it full screen.</p>
+
+        <div class="gallery-grid" id="galleryGrid">
+
+            
+            <div class="gallery-item" data-caption="Children at morning prayer">
+                <div class="gallery-img-wrap">
+                    <img src="home.jpg" alt="Our children on Uniform">
+                </div>
+                <div class="gallery-caption">
+                    <span>Ama Bethel Kids</span>
+                    <p>Our children during a programme to honour one of our donors</p>
+                </div>
+            </div>
+            
+			
+			<div class="gallery-item" data-caption="Children at morning prayer">
+                <div class="gallery-img-wrap">
+                    <img src="compound.jpg" alt="Normal Day">
+                </div>
+                <div class="gallery-caption">
+                    <span>Ama Bethel</span>
+                    <p>A normal day at the care home</p>
+                </div>
+            </div>
+            
+			
+			<div class="gallery-item" data-caption="Children at morning prayer">
+                <div class="gallery-img-wrap">
+                    <img src="orphans.jpg" alt="Joyfully showing the gifts they have received">
+                </div>
+                <div class="gallery-caption">
+                    <span>Ama Bethel</span>
+                    <p>Our children joyfully showing the gifts they have received</p>
+                </div>
+            </div>
+            
+			
+			
+            
+			<div class="gallery-item" data-caption="Our kids dancing">
+    <div class="gallery-img-wrap">
+        <video controls poster="dance.png">
+            <source src="dance.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="gallery-caption">
+        <span>2025</span>
+        <p>Our kids dancing happily</p>
+    </div>
+</div>
+			
+			
+			
+            
+			<div class="gallery-item" data-caption="A class session">
+    <div class="gallery-img-wrap">
+        <video controls poster="0303.png">
+            <source src="0303.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="gallery-caption">
+        <span>2025</span>
+        <p>Orphans receiving teaching</p>
+    </div>
+</div>
+		
+
+
+<div class="gallery-item" data-caption="Gifts presented to the children">
+                <div class="gallery-img-wrap">
+                    <img src="gifts.jpg" alt="Gifts being received by the children">
+                </div>
+                <div class="gallery-caption">
+                    <span>Ama Bethel</span>
+                    <p>Gifts being received by the children</p>
+                </div>
+            </div>
+
+
+			<div class="gallery-item" data-caption="Children receiving some talk">
+                <div class="gallery-img-wrap">
+                    <img src="structure.jpg" alt="Children receiving some talk">
+                </div>
+                <div class="gallery-caption">
+                    <span>Ama Bethel</span>
+                    <p>Children receiving some talk</p>
+                </div>
+            </div>
+            
+
+		<div class="gallery-item" data-caption="Children with their teachers">
+                <div class="gallery-img-wrap">
+                    <img src="teachers.png" alt="Children with the founder and  their teachers">
+                </div>
+                <div class="gallery-caption">
+                    <span>Ama Bethel</span>
+                    <p>Children with the founder and their teachers</p>
+                </div>
+            </div>
+            
+
+
+		<div class="gallery-item" data-caption="Children with their teachers">
+                <div class="gallery-img-wrap">
+                    <img src="kids.jpg" alt="Children with their teachers">
+                </div>
+                <div class="gallery-caption">
+                    <span>Ama Bethel</span>
+                    <p>Children with their teachers</p>
+                </div>
+            </div>
+            
+
+
+
+        </div>
+
+        
+    </div>
+</section>
+
+<!-- ── Lightbox ── -->
+<div id="lightbox">
+    <button id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-caption"></p>
+</div>
 
 <!-- ── Get Involved ── -->
 <section id="get-involved">
@@ -635,7 +1115,7 @@
             <div class="involve-card">
                 <div class="icon">🤝</div>
                 <h3>Partner With Us</h3>
-                <p>Churches, mosques, organisations, and businesses can partner with us through sustained sponsorships, in-kind donations, or programme co-funding.</p>
+                <p>Churches, organisations, and businesses can partner with us through sustained sponsorships, in-kind donations, or programme co-funding.</p>
                 <a href="#contact" class="cta-button" style="font-size:0.95rem; padding:10px 25px;">Contact Us</a>
             </div>
             <div class="involve-card">
@@ -692,7 +1172,7 @@
                     <div class="icon">✉️</div>
                     <div class="text">
                         <strong>Email</strong>
-                        <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a>
+                        <a href="/cdn-cgi/l/email-protection#187975797a7d6c707d74776a687079766b7b796a7d7176716c71796c716e7d587f75797174367b7775"><span class="__cf_email__" data-cfemail="680905090a0d1c000d04071a180009061b0b091a0d0106011c01091c011e0d280f05090104460b0705">[email&#160;protected]</span></a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -753,6 +1233,8 @@
             <a href="#home">Home</a>
             <a href="#about">About Us</a>
             <a href="#work">Our Work</a>
+            <a href="#credentials">Our Credentials</a>
+            <a href="#gallery">Gallery</a>
             <a href="#impact">Impact & Updates</a>
             <a href="#get-involved">Get Involved</a>
             <a href="#contact">Contact</a>
@@ -761,7 +1243,7 @@
             <h3>Contact</h3>
             <p>📍 Arhan Kunu, Mubi, Adamawa State</p>
             <p>📞 <a href="tel:+2347036899929">07036899929</a></p>
-            <p>✉️ <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a></p>
+            <p>✉️ <a href="/cdn-cgi/l/email-protection#b3d2ded2d1d6c7dbd6dfdcc1c3dbd2ddc0d0d2c1d6dadddac7dad2c7dac5d6f3d4ded2dadf9dd0dcde"><span class="__cf_email__" data-cfemail="583935393a3d2c303d34372a283039362b3b392a3d3136312c31392c312e3d183f35393134763b3735">[email&#160;protected]</span></a></p>
         </div>
         <div class="footer-section">
             <h3>Donate</h3>
@@ -818,6 +1300,40 @@
         setActiveLink();
     });
 
+
+// ── Lightbox ──
+    const lightbox      = document.getElementById('lightbox');
+    const lightboxImg   = document.getElementById('lightbox-img');
+    const lightboxCap   = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    document.getElementById('galleryGrid').addEventListener('click', function(e) {
+        const item = e.target.closest('.gallery-item');
+        if (!item) return;
+        const img = item.querySelector('img');
+        if (!img) return;                          // skip video clicks
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCap.textContent = item.dataset.caption || img.alt || '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLightbox();
+    });
+
+
     // ── Contact form (mailto fallback) ──
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -837,5 +1353,3 @@
         setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 6000);
     }
 </script>
-</body>
-</html>
