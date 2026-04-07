@@ -472,14 +472,12 @@
             display: inline-block; padding: 5px 14px;
             border-radius: 20px; font-size: 0.8rem; font-weight: 600;
         }
-        .doc-status.available { background: #e8f5e9; color: #2c5f2d; }
-        .doc-status.coming-soon { background: #fff3e0; color: #e65100; }
-        .doc-upload-note {
-            max-width: 700px; margin: 40px auto 0; text-align: center;
-            background: #fffde7; border: 1px dashed #f9a825;
-            border-radius: 10px; padding: 20px 25px;
-            color: #5d4037; font-size: 0.92rem; line-height: 1.7;
+        .doc-status.available {
+            background: #e8f5e9; color: #2c5f2d;
+            text-decoration: none;
         }
+        .doc-status.available:hover { background: #c8e6c9; }
+        .doc-status.coming-soon { background: #fff3e0; color: #e65100; }
 
         /* ── Gallery ── */
         #gallery { padding: 80px 20px; background: white; }
@@ -528,34 +526,7 @@
         }
         .gallery-caption { padding: 14px 16px; }
         .gallery-caption p { color: #555; font-size: 0.9rem; line-height: 1.5; }
-        .gallery-caption span { color: #97bc62; font-size: 0.8rem; font-weight: 600; }
-
-        /* Placeholder cards */
-        .gallery-placeholder {
-            border-radius: 12px; overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); background: white;
-        }
-        .gallery-placeholder-img {
-            width: 100%; height: 220px;
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            color: #2c5f2d; font-size: 2.5rem;
-        }
-        .gallery-placeholder-img span {
-            font-size: 0.85rem; margin-top: 10px;
-            font-weight: 600; opacity: 0.7;
-        }
-        .gallery-placeholder-caption {
-            padding: 14px 16px; color: #777;
-            font-size: 0.88rem; font-style: italic;
-        }
-        .gallery-add-note {
-            max-width: 700px; margin: 0 auto; text-align: center;
-            background: #fffde7; border: 1px dashed #f9a825;
-            border-radius: 10px; padding: 20px 25px;
-            color: #5d4037; font-size: 0.92rem; line-height: 1.7;
-        }
+        .gallery-caption span { color: #97bc62; font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px; }
 
         /* ── Lightbox ── */
         #lightbox {
@@ -600,7 +571,6 @@
         }
         #lightbox-close:hover { opacity: 1; }
 
-
         /* ── Founding Story Timeline ── */
         .story-timeline {
             max-width: 800px;
@@ -627,7 +597,7 @@
         .timeline-body h4 { color: #2c5f2d; font-size: 1.05rem; margin-bottom: 6px; }
         .timeline-body p { color: #555; font-size: 0.97rem; line-height: 1.8; margin-bottom: 0; }
 
-        /* Name meaning callout */
+        /* ── FIX: Name meaning callout — all text now white/light ── */
         .name-callout {
             max-width: 750px; margin: 40px auto;
             background: linear-gradient(135deg, #2c5f2d, #4a8c4b);
@@ -635,8 +605,15 @@
             padding: 30px 35px; text-align: center;
         }
         .name-callout .name-emoji { font-size: 2.5rem; margin-bottom: 12px; }
-        .name-callout h4 { font-size: 1.5rem; margin-bottom: 10px; }
-        .name-callout p { opacity: 0.92; line-height: 1.8; font-size: 1rem; }
+        .name-callout h4 { font-size: 1.5rem; margin-bottom: 10px; color: #ffffff; }
+        .name-callout p {
+            color: #ffffff;
+            opacity: 1;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .name-callout p em { color: #c8e6a0; font-style: normal; font-weight: 600; }
+        .name-callout p strong { color: #c8e6a0; }
 
         /* Vision / Future Plans */
         .vision-section { max-width: 800px; margin: 60px auto 0; }
@@ -670,7 +647,6 @@
             font-style: italic; color: #666;
             font-size: 1rem; line-height: 1.8;
         }
-
     </style>
 </head>
 <body>
@@ -702,17 +678,21 @@
 <!-- ── Hero ── -->
 <section id="home" class="hero">
     <h2>Building Futures, One Child at a Time</h2>
-    <p>Providing hope, education, and care to 100+ orphaned and vulnerable children in Mubi, Adamawa State</p>
+    <p>Providing hope, education, and care to orphaned and vulnerable children in Mubi, Adamawa State</p>
     <a href="#get-involved" class="cta-button">Support Our Mission</a>
 </section>
 
-<!-- ── Stats ── -->
+<!-- ── Stats ── 
+     FIX: "100+ Children in Our Care" conflicted with "53 children" in the body.
+     Changed to "53+" to be accurate and consistent. "Lives Transformed" kept as 
+     a broader cumulative figure (children served since 2021, not just current).
+-->
 <section class="stats">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Children in Our Care</div>
+                <div class="stat-number">53+</div>
+                <div class="stat-label">Children Currently in Our Care</div>
             </div>
             <div class="stat-box">
                 <div class="stat-number">2021</div>
@@ -724,7 +704,7 @@
             </div>
             <div class="stat-box">
                 <div class="stat-number">100+</div>
-                <div class="stat-label">Lives Transformed</div>
+                <div class="stat-label">Lives Touched Since 2021</div>
             </div>
         </div>
     </div>
@@ -741,19 +721,16 @@
                 "Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress and to keep oneself from being polluted by the world." — James 1:27
             </div>
 
-
- <!-- Name meaning -->
-        <div class="name-callout">
-            <div class="name-emoji">🏠</div>
-            <h4>What Our Name Means</h4>
-            <p>
-                <em>Ama</em> means "Mother" in the founder's tribe.<br>
-                <em>Bethel</em> means "House of God."<br><br>
-                Together, <strong style="color:#fff;">Ama Bethel</strong> is a <strong style="color:#c8e6a0;">Mother's House of God</strong> — a place where every child is received as God's own.
-            </p>
-        </div>
-
-
+            <!-- FIX: Name callout — text is now fully white/light for visibility -->
+            <div class="name-callout">
+                <div class="name-emoji">🏠</div>
+                <h4>What Our Name Means</h4>
+                <p>
+                    <em>Ama</em> means "Mother" in the founder's tribe.<br>
+                    <em>Bethel</em> means "House of God."<br><br>
+                    Together, <strong>Ama Bethel</strong> is a <strong>Mother's House of God</strong> — a place where every child is received as God's own.
+                </p>
+            </div>
 
             <!-- Founding Story -->
             <div class="story-timeline">
@@ -842,15 +819,14 @@
             <p>Ama Bethel Orphans Care Initiative is a legally registered organisation operating in full compliance with Nigerian law. We are committed to full transparency so that every donor and partner can give with complete confidence.</p>
         </div>
         <div class="docs-grid">
+            <!-- FIX: Removed broken nested span/anchor; clean link with proper styling -->
             <div class="doc-card">
                 <div class="doc-icon">🏛️</div>
                 <h4>CAC Registration Certificate</h4>
                 <p>Corporate Affairs Commission certificate confirming our legal registration as an organisation in Nigeria.</p>
-                <span class="doc-status coming-soon"><a href="CAC.pdf" target="_blank" class="doc-status available">View Document</a></span>
+                <a href="CAC.pdf" target="_blank" class="doc-status available">View Document</a>
             </div>
-            
         </div>
-        
     </div>
 </section>
 
@@ -990,120 +966,103 @@
 
         <div class="gallery-grid" id="galleryGrid">
 
-            
-            <div class="gallery-item" data-caption="Children at morning prayer">
+            <!-- FIX: Improved captions to be more descriptive and meaningful -->
+            <div class="gallery-item" data-caption="Children dressed in uniform during a programme to honour one of our donors">
                 <div class="gallery-img-wrap">
-                    <img src="home.jpg" alt="Our children on Uniform">
+                    <img src="home.jpg" alt="Children dressed in uniform at a donor appreciation programme">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel Kids</span>
-                    <p>Our children during a programme to honour one of our donors</p>
+                    <p>Children dressed in uniform at a donor appreciation programme</p>
                 </div>
             </div>
-            
-			
-			<div class="gallery-item" data-caption="Children at morning prayer">
+
+            <div class="gallery-item" data-caption="A normal day at the Ama Bethel care home">
                 <div class="gallery-img-wrap">
-                    <img src="compound.jpg" alt="Normal Day">
+                    <img src="compound.jpg" alt="A normal day at the care home compound">
                 </div>
                 <div class="gallery-caption">
-                    <span>Ama Bethel</span>
-                    <p>A normal day at the care home</p>
+                    <span>Daily Life</span>
+                    <p>A normal day at the Ama Bethel care home</p>
                 </div>
             </div>
-            
-			
-			<div class="gallery-item" data-caption="Children at morning prayer">
+
+            <div class="gallery-item" data-caption="Our children joyfully showing off gifts they received from donors">
                 <div class="gallery-img-wrap">
-                    <img src="orphans.jpg" alt="Joyfully showing the gifts they have received">
+                    <img src="orphans.jpg" alt="Children joyfully showing the gifts they have received">
                 </div>
                 <div class="gallery-caption">
-                    <span>Ama Bethel</span>
-                    <p>Our children joyfully showing the gifts they have received</p>
+                    <span>Gift Day 🎁</span>
+                    <p>Our children joyfully showing off gifts received from kind donors</p>
                 </div>
             </div>
-            
-			
-			
-            
-			<div class="gallery-item" data-caption="Our kids dancing">
-    <div class="gallery-img-wrap">
-        <video controls poster="dance.png">
-            <source src="dance.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="gallery-caption">
-        <span>2025</span>
-        <p>Our kids dancing happily</p>
-    </div>
-</div>
 
+            <!-- FIX: Video items — cursor changed so they don't mislead users into expecting lightbox -->
+            <div class="gallery-item video-item" data-caption="Our kids dancing joyfully — 2025" style="cursor:default;">
+                <div class="gallery-img-wrap">
+                    <video controls poster="dance.png">
+                        <source src="dance.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="gallery-caption">
+                    <span>2025 🎉</span>
+                    <p>Our kids dancing joyfully — pure joy, pure grace</p>
+                </div>
+            </div>
 
-			<div class="gallery-item" data-caption="A class session">
-    <div class="gallery-img-wrap">
-        <video controls poster="0303.png">
-            <source src="0303.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="gallery-caption">
-        <span>2025</span>
-        <p>Orphans receiving teaching</p>
-    </div>
-</div>
-			
-			
+            <div class="gallery-item video-item" data-caption="Children receiving a teaching session — 2025" style="cursor:default;">
+                <div class="gallery-img-wrap">
+                    <video controls poster="0303.png">
+                        <source src="0303.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="gallery-caption">
+                    <span>2025 📖</span>
+                    <p>Children engaged in a teaching and learning session</p>
+                </div>
+            </div>
 
-
-<div class="gallery-item" data-caption="Gifts presented to the children">
+            <div class="gallery-item" data-caption="Gifts being presented to the children by generous donors">
                 <div class="gallery-img-wrap">
                     <img src="gifts.jpg" alt="Gifts being received by the children">
                 </div>
                 <div class="gallery-caption">
-                    <span>Ama Bethel</span>
-                    <p>Gifts being received by the children</p>
+                    <span>Generosity in Action</span>
+                    <p>Gifts being presented to the children by generous donors</p>
                 </div>
             </div>
 
-
-			<div class="gallery-item" data-caption="Children receiving some talk">
+            <div class="gallery-item" data-caption="Children seated and attentive during an address">
                 <div class="gallery-img-wrap">
-                    <img src="structure.jpg" alt="Children receiving some talk">
+                    <img src="structure.jpg" alt="Children listening attentively during an address">
                 </div>
                 <div class="gallery-caption">
-                    <span>Ama Bethel</span>
-                    <p>Children receiving some talk</p>
+                    <span>Learning & Listening</span>
+                    <p>Children seated and attentive during a special address</p>
                 </div>
             </div>
-            
 
-		<div class="gallery-item" data-caption="Children with their teachers">
+            <div class="gallery-item" data-caption="Children posing with the founder, Rebecca Mandafia, and their teachers">
                 <div class="gallery-img-wrap">
-                    <img src="teachers.png" alt="Children with the founder and  their teachers">
+                    <img src="teachers.png" alt="Children with the founder and their teachers">
                 </div>
                 <div class="gallery-caption">
-                    <span>Ama Bethel</span>
-                    <p>Children with the founder and their teachers</p>
+                    <span>Our Family</span>
+                    <p>Children with founder Rebecca Mandafia and their dedicated teachers</p>
                 </div>
             </div>
-            
 
-
-		<div class="gallery-item" data-caption="Children with their teachers">
+            <div class="gallery-item" data-caption="Children together with their teachers at Ama Bethel">
                 <div class="gallery-img-wrap">
                     <img src="kids.jpg" alt="Children with their teachers">
                 </div>
                 <div class="gallery-caption">
-                    <span>Ama Bethel</span>
-                    <p>Children with their teachers</p>
+                    <span>Education & Care</span>
+                    <p>Children together with their caring teachers at Ama Bethel</p>
                 </div>
             </div>
-            
-
-
 
         </div>
-
-        
     </div>
 </section>
 
@@ -1159,6 +1118,10 @@
 </section>
 
 <!-- ── Contact ── -->
+<!-- FIX: Form now uses Netlify Forms (data-netlify="true") so submissions are
+     actually captured in the Netlify dashboard — no backend code needed.
+     The mailto fallback is kept as a secondary safety net.
+     IMPORTANT: After deploying, go to Netlify → Forms to see submissions. -->
 <section id="contact">
     <div class="container">
         <h2 class="section-title">Contact Us</h2>
@@ -1185,7 +1148,7 @@
                     <div class="icon">✉️</div>
                     <div class="text">
                         <strong>Email</strong>
-                        <a href="/cdn-cgi/l/email-protection#187975797a7d6c707d74776a687079766b7b796a7d7176716c71796c716e7d587f75797174367b7775"><span class="__cf_email__" data-cfemail="680905090a0d1c000d04071a180009061b0b091a0d0106011c01091c011e0d280f05090104460b0705">[email&#160;protected]</span></a>
+                        <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1199,7 +1162,12 @@
 
             <div class="contact-form">
                 <h3>Send a Message</h3>
-                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <!-- Netlify Forms integration: captures submissions in Netlify dashboard -->
+                <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFormSubmit(event)">
+                    <!-- Netlify hidden fields -->
+                    <input type="hidden" name="form-name" value="contact">
+                    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -1256,7 +1224,7 @@
             <h3>Contact</h3>
             <p>📍 Arhan Kunu, Mubi, Adamawa State</p>
             <p>📞 <a href="tel:+2347036899929">07036899929</a></p>
-            <p>✉️ <a href="/cdn-cgi/l/email-protection#b3d2ded2d1d6c7dbd6dfdcc1c3dbd2ddc0d0d2c1d6dadddac7dad2c7dac5d6f3d4ded2dadf9dd0dcde"><span class="__cf_email__" data-cfemail="583935393a3d2c303d34372a283039362b3b392a3d3136312c31392c312e3d183f35393134763b3735">[email&#160;protected]</span></a></p>
+            <p>✉️ <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a></p>
         </div>
         <div class="footer-section">
             <h3>Donate</h3>
@@ -1283,7 +1251,6 @@
         nav.classList.toggle('open');
     });
 
-    // Close nav when a link is clicked
     nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('open');
@@ -1313,8 +1280,7 @@
         setActiveLink();
     });
 
-
-// ── Lightbox ──
+    // ── Lightbox (images only — skip video items) ──
     const lightbox      = document.getElementById('lightbox');
     const lightboxImg   = document.getElementById('lightbox-img');
     const lightboxCap   = document.getElementById('lightbox-caption');
@@ -1323,8 +1289,9 @@
     document.getElementById('galleryGrid').addEventListener('click', function(e) {
         const item = e.target.closest('.gallery-item');
         if (!item) return;
+        if (item.classList.contains('video-item')) return; // skip videos
         const img = item.querySelector('img');
-        if (!img) return;                          // skip video clicks
+        if (!img) return;
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
         lightboxCap.textContent = item.dataset.caption || img.alt || '';
@@ -1346,23 +1313,37 @@
         if (e.key === 'Escape') closeLightbox();
     });
 
-
-    // ── Contact form (mailto fallback) ──
+    // ── Contact form — Netlify Forms primary, mailto fallback ──
     function handleFormSubmit(e) {
         e.preventDefault();
+        const form    = e.target;
         const name    = document.getElementById('name').value;
         const email   = document.getElementById('email').value;
         const subject = document.getElementById('subject').value || 'Website Enquiry';
         const message = document.getElementById('message').value;
 
-        const mailtoLink = `mailto:amabethelorphanscareinitiative@gmail.com`
-            + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
-            + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
-
-        window.location.href = mailtoLink;
-
-        document.getElementById('formSuccess').style.display = 'block';
-        e.target.reset();
-        setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 6000);
+        // Submit to Netlify
+        const formData = new FormData(form);
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            document.getElementById('formSuccess').style.display = 'block';
+            form.reset();
+            setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 6000);
+        })
+        .catch(() => {
+            // Fallback: open mailto if Netlify submission fails
+            const mailtoLink = `mailto:amabethelorphanscareinitiative@gmail.com`
+                + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
+                + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+            window.location.href = mailtoLink;
+            document.getElementById('formSuccess').style.display = 'block';
+            form.reset();
+        });
     }
 </script>
+</body>
+</html>
