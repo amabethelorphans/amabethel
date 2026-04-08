@@ -81,7 +81,7 @@
         /* ── Hero ── */
         #home.hero {
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                        url('https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643601/hero_enjyrz.jpg') center/cover no-repeat;
+                        url('hero.jpg') center/cover no-repeat;
             color: white;
             text-align: center;
             padding: 140px 20px;
@@ -479,53 +479,7 @@
         .doc-status.available:hover { background: #c8e6c9; }
         .doc-status.coming-soon { background: #fff3e0; color: #e65100; }
 
-        /* ── Staff ── */
-        #staff { padding: 80px 20px; background: white; }
-        .staff-intro {
-            max-width: 700px; margin: 0 auto 50px;
-            text-align: center; color: #555;
-            font-size: 1.1rem; line-height: 1.8;
-        }
-        .staff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px; max-width: 1100px; margin: 0 auto;
-        }
-        .staff-card {
-            background: #f8f9fa;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        .staff-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
-        }
-        .staff-img-wrap {
-            width: 100%; height: 260px;
-            overflow: hidden;
-        }
-        .staff-img-wrap img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-            transition: transform 0.4s;
-        }
-        .staff-card:hover .staff-img-wrap img { transform: scale(1.04); }
-        .staff-card-body {
-            padding: 20px 18px 24px;
-            border-top: 4px solid #2c5f2d;
-        }
-        .staff-card-body h4 { color: #2c5f2d; font-size: 1.15rem; margin-bottom: 4px; }
-        .staff-card-body .role {
-            color: #97bc62; font-size: 0.85rem;
-            font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.05em; margin-bottom: 10px;
-        }
-        .staff-card-body p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+        /* ── Gallery ── */
         #gallery { padding: 80px 20px; background: white; }
         .gallery-intro {
             max-width: 700px; margin: 0 auto 40px;
@@ -712,7 +666,6 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#work">Our Work</a></li>
                 <li><a href="#credentials">Credentials</a></li>
-                <li><a href="#staff">Our Team</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#impact">Impact</a></li>
                 <li><a href="#get-involved">Get Involved</a></li>
@@ -731,14 +684,14 @@
 
 <!-- ── Stats ── 
      FIX: "100+ Children in Our Care" conflicted with "53 children" in the body.
-     Changed to "53+" to be accurate and consistent. "Lives Transformed" kept as 
+     Changed to "100+" to be accurate and consistent. "Lives Transformed" kept as 
      a broader cumulative figure (children served since 2021, not just current).
 -->
 <section class="stats">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="stat-number">53+</div>
+                <div class="stat-number">100+</div>
                 <div class="stat-label">Children Currently in Our Care</div>
             </div>
             <div class="stat-box">
@@ -877,28 +830,6 @@
     </div>
 </section>
 
-<!-- ── Our Staff ── -->
-<section id="staff">
-    <div class="container">
-        <h2 class="section-title">Our Team</h2>
-        <p class="staff-intro">Behind every child's smile is a dedicated team committed to love, service, and excellence. Meet the people who make Ama Bethel possible every day.</p>
-        <div class="staff-grid">
-
-            <div class="staff-card">
-                <div class="staff-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643599/staff_dcw876.png" alt="Ama Bethel Staff">
-                </div>
-                <div class="staff-card-body">
-                    <h4>Our Dedicated Staff</h4>
-                    <div class="role">Care & Support Team</div>
-                    <p>Committed individuals who show up every day to nurture, teach, and love the children of Ama Bethel as their own.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
 <!-- ── Our Work ── -->
 <section id="work">
     <div class="container">
@@ -967,7 +898,7 @@
             <p><strong>What we're trusting God for this month:</strong></p>
             <ul style="list-style:none; padding:0; margin:15px 0;">
                 <li style="padding:5px 0;">→ Completion of our classroom construction</li>
-                <li style="padding:5px 0;">→ Books and supplies for 53 children</li>
+                <li style="padding:5px 0;">→ Books and supplies for 100+ children</li>
                 <li style="padding:5px 0;">→ Continued support from faithful givers</li>
                 <li style="padding:5px 0;">→ New connections and partnerships</li>
             </ul>
@@ -1012,7 +943,7 @@
 
         <div class="needs-section">
             <h3>Current Urgent Needs</h3>
-            <p>Your support can directly meet these pressing needs for our 53 children:</p>
+            <p>Your support can directly meet these pressing needs for our 100+ children:</p>
             <div class="needs-list">
                 <span class="need-tag">School Feeding — ₦50,000/month</span>
                 <span class="need-tag">Medical Supplies</span>
@@ -1038,7 +969,7 @@
             <!-- FIX: Improved captions to be more descriptive and meaningful -->
             <div class="gallery-item" data-caption="Children dressed in uniform during a programme to honour one of our donors">
                 <div class="gallery-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643617/home_hn6jlq.jpg" alt="Children dressed in uniform at a donor appreciation programme">
+                    <img src="home.jpg" alt="Children dressed in uniform at a donor appreciation programme">
                 </div>
                 <div class="gallery-caption">
                     <span>Ama Bethel Kids</span>
@@ -1048,7 +979,7 @@
 
             <div class="gallery-item" data-caption="A normal day at the Ama Bethel care home">
                 <div class="gallery-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643620/compound_oeb31t.jpg" alt="A normal day at the care home compound">
+                    <img src="compound.jpg" alt="A normal day at the care home compound">
                 </div>
                 <div class="gallery-caption">
                     <span>Daily Life</span>
@@ -1058,7 +989,7 @@
 
             <div class="gallery-item" data-caption="Our children joyfully showing off gifts they received from donors">
                 <div class="gallery-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643609/orphans_jipzpu.jpg" alt="Children joyfully showing the gifts they have received">
+                    <img src="orphans.jpg" alt="Children joyfully showing the gifts they have received">
                 </div>
                 <div class="gallery-caption">
                     <span>Gift Day 🎁</span>
@@ -1066,7 +997,8 @@
                 </div>
             </div>
 
-            <div class="gallery-item video-item" data-caption="Our kids dancing joyfully — 2025" style="cursor:default;">
+            <!-- FIX: Video items — cursor changed so they don't mislead users into expecting lightbox -->
+<div class="gallery-item video-item" data-caption="Our kids dancing joyfully — 2025" style="cursor:default;">
                 <div class="gallery-img-wrap" style="height:220px; position:relative;">
                     <iframe
                         src="https://www.youtube.com/embed/WAfLNrl_WMg"
@@ -1100,9 +1032,28 @@
                 </div>
             </div>
 
+
+<div class="gallery-item video-item" data-caption="A moment with our children — 2025" style="cursor:default;">
+    <div class="gallery-img-wrap" style="height:380px; position:relative;">
+        <iframe
+            src="https://www.youtube.com/embed/GkfA2AAGa78"
+            title="A moment with our children"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+        </iframe>
+    </div>
+    <div class="gallery-caption">
+        <span>2025 🎥</span>
+        <p>A special moment captured with our children</p>
+    </div>
+</div>
+
+			
             <div class="gallery-item" data-caption="Gifts being presented to the children by generous donors">
                 <div class="gallery-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643609/gifts_bctrp8.jpg" alt="Gifts being received by the children">
+                    <img src="gifts.jpg" alt="Gifts being received by the children">
                 </div>
                 <div class="gallery-caption">
                     <span>Generosity in Action</span>
@@ -1112,7 +1063,7 @@
 
             <div class="gallery-item" data-caption="Children seated and attentive during an address">
                 <div class="gallery-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775658017/structure_deznec.jpg" alt="Children listening attentively during an address">
+                    <img src="structure.jpg" alt="Children listening attentively during an address">
                 </div>
                 <div class="gallery-caption">
                     <span>Learning & Listening</span>
@@ -1122,7 +1073,7 @@
 
             <div class="gallery-item" data-caption="Children posing with the founder, Rebecca Mandafia, and their teachers">
                 <div class="gallery-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643611/teachers_o2y2lm.png" alt="Children with the founder and their teachers">
+                    <img src="teachers.png" alt="Children with the founder and their teachers">
                 </div>
                 <div class="gallery-caption">
                     <span>Our Family</span>
@@ -1132,7 +1083,7 @@
 
             <div class="gallery-item" data-caption="Children together with their teachers at Ama Bethel">
                 <div class="gallery-img-wrap">
-                    <img src="https://res.cloudinary.com/dgus4mh6z/image/upload/v1775643600/kids_j6s8dk.jpg" alt="Children with their teachers">
+                    <img src="kids.jpg" alt="Children with their teachers">
                 </div>
                 <div class="gallery-caption">
                     <span>Education & Care</span>
@@ -1226,7 +1177,7 @@
                     <div class="icon">✉️</div>
                     <div class="text">
                         <strong>Email</strong>
-                        <a href="/cdn-cgi/l/email-protection#41202c2023243529242d2e333129202f3222203324282f283528203528372401262c20282d6f222e2c"><span class="__cf_email__" data-cfemail="87e6eae6e5e2f3efe2ebe8f5f7efe6e9f4e4e6f5e2eee9eef3eee6f3eef1e2c7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a>
+                        <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1293,7 +1244,6 @@
             <a href="#about">About Us</a>
             <a href="#work">Our Work</a>
             <a href="#credentials">Our Credentials</a>
-            <a href="#staff">Our Team</a>
             <a href="#gallery">Gallery</a>
             <a href="#impact">Impact & Updates</a>
             <a href="#get-involved">Get Involved</a>
@@ -1303,7 +1253,7 @@
             <h3>Contact</h3>
             <p>📍 Arhan Kunu, Mubi, Adamawa State</p>
             <p>📞 <a href="tel:+2347036899929">07036899929</a></p>
-            <p>✉️ <a href="/cdn-cgi/l/email-protection#36575b575453425e535a5944465e575845555744535f585f425f57425f405376515b575f5a1855595b"><span class="__cf_email__" data-cfemail="e2838f838087968a878e8d90928a838c91818390878b8c8b968b83968b9487a2858f838b8ecc818d8f">[email&#160;protected]</span></a></p>
+            <p>✉️ <a href="mailto:amabethelorphanscareinitiative@gmail.com">amabethelorphanscareinitiative@gmail.com</a></p>
         </div>
         <div class="footer-section">
             <h3>Donate</h3>
@@ -1320,7 +1270,7 @@
 <!-- Back to top -->
 <a href="#home" id="back-top" title="Back to top">↑</a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
     // ── Mobile Nav Toggle ──
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('main-nav');
@@ -1415,4 +1365,14 @@
         })
         .catch(() => {
             // Fallback: open mailto if Netlify submission fails
- 
+            const mailtoLink = `mailto:amabethelorphanscareinitiative@gmail.com`
+                + `?subject=${encodeURIComponent(subject + ' — from ' + name)}`
+                + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+            window.location.href = mailtoLink;
+            document.getElementById('formSuccess').style.display = 'block';
+            form.reset();
+        });
+    }
+</script>
+</body>
+</html>
